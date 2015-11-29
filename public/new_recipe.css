@@ -1,0 +1,46 @@
+body{
+	background-image: url("http://www.platetoplate.com/wp/wp-content/uploads/2011/07/DSC_2683-580x383.jpg") ;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#header{
+	font-family: monospace;
+	text-transform: uppercase;
+	font-style: normal;
+	color: white;
+}
+
+#submitRecipe{
+	margin: 10px;
+	padding: 10px 50px;
+}
+h5{
+	color: white;
+}
+.allTheIngredientsDiv{
+	background: white;
+	opacity: 0.7;
+	padding: 9px;
+	border-radius: 8px;
+	margin: 6px;
+}
+
+.ingredientImg{
+	width: 58%;	
+}
+
+#noResult{
+	color: black;
+}
+
+.addIngredient{
+	margin: 14px;
+}
+
+.ingredientListImg{
+	width: 10%;
+}
+#emptyDiv{
+	height: 60px;
+}

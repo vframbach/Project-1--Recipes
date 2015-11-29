@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- bootstrap css -->
+  	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<!-- custom styles -->
+	<link rel="stylesheet" type="text/css" href="new_recipe.css">
+	<!-- custom styles navbar-->
+	<link rel="stylesheet" type="text/css" href="nav.css">
+
+	<meta charset="UTF-8">
+	<title>Cooking- Add New Recipe</title>
+</head>
+<body>
+	{{>nav}}
+	<div class="container-full">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center" id="header">
+				<h1>Add A New Recipe</h1><hr>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12" id="emptyDiv">
+				
+			</div>
+		</div>
+
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="row">
+	  			<div class="col-md-4">
+					<form id="newRecipeForm">
+	  					<div class="form-group">
+	  						<input type="text" class="form-control" id="nameOfRecipe" placeholder="What Are You Cooking?" validation="required">
+	  					</div>
+	  					<div class="form-group">
+	  						<input type="text" class="form-control" id="dinners" placeholder="For How Many Dinners?" validation="required">
+	  					</div>
+
+	  					<div class="form-group">
+	  						<input type="number" class="form-control" id="dinners" placeholder="estimated cooking time (in minuets)" validation="required">
+	  					</div>
+				
+						<div class="form-group form-control">
+							<label class="radio-inline field">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadioBreakfast" value="breakfast"> Breakfast
+							</label>
+							<label class="radio-inline field">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadioLunch" value="lunch"> Lunch
+							</label>
+							<label class="radio-inline field">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadioDinner" value="dinner"> Dinner
+							</label>
+						</div>
+	  
+	  					<div class="form-group">
+		    				<h5>Ingredients:</h5>
+		    			</div>
+						<div class="form-group form-inline">
+						    <input type="text" class="form-control" id="searchIngredient" placeholder="Search an ingredient">
+						    <button id="searchButton" class="btn btn-default">Search</button>
+						</div>
+						<div class="form-group" id="ingredientsResult">
+							<div class="row" id="allTheIngredients">
+								<script id= "listOfIngredients" type="text/x-hendlebars-template">
+							    	\{{#each item}}
+							    		<div class="col-md-3">
+							    			<div class="row">
+							    				<div class="col-md-12 text-center">
+													<img class="ingredientImg" id="img\{{_id}}" src=\{{image}}> 
+												</div>
+											</div>
+											<div class="row">
+							    				<div class="col-md-12 text-center">
+							    					<p class="ingredientName" id="name\{{_id}}">\{{name}} </p>
+							    				</div>
+							    			</div>
+										</div>
+						    			
+									<div class="col-md-5">
+										<div class="row">
+							    			<div class="col-md-12 text-center">
+								    			<input type="text" class="form-control quantityOfItem text-center" id="quantity\{{_id}}" placeholder="Quantity">
+								    		</div>
+								    	</div>
+								    	<div class="row">
+							    			<div class="col-md-12 text-center">
+								    			<select class="form-control measure" id="measure\{{_id}}">
+													<option>measurment</option>
+													<option>Can</option>
+													<option>Cup</option>
+													<option>Gr</option>
+													<option>Lb</option>
+													<option>Leaves</option>
+													<option>Ounts</option>
+													<option>Piece</option>
+													<option>Spoon</option>
+													<option>TSP</option>
+													<option>Other</option>
+												</select>
+							    			</div>
+							    		</div>
+								    </div>	
+								
+									<div class="col-md-4 text-center">
+										<button class="addIngredient btn btn-primary btn-block" id="\{{_id}}">Add</button>
+									</div>
+							    \{{/each}}
+							    </script>	
+							</div>
+						</div>
+							
+										
+		    			<ol id="selectedIngredients">
+		    						
+	 					</ol> 
+	
+			  				<div class="form-group">
+				  				<h5>Image of your dish:</h5>
+				   				<input type="file" id="dishImage" validation="required">
+				   			</div>
+		   					</div> 	
+
+				  			<div class="col-md-8">
+						  		<div class="form-group">
+						    		<textarea class="form-control" id="instructions" placeholder="Please write here the instructions" rows="16" validation="required"></textarea>   
+						  		</div>
+						  	</div>
+						</div>
+
+			  		<div class="row">
+			  			<div class="col-md-12 text-center">
+			  				<button type="submit" id="submitRecipe" class="btn btn-primary text-center">Post My Recipe!</button>
+			  			</div>
+			  		</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- jquery -->
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- custom script -->
+	<script type="text/javascript" src="main.js"></script>
+	<!-- handlebars -->
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  	<!-- bootstrap js -->
+ 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+</body>
+</html>

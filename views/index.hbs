@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- bootstrap css -->
+  	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<!-- custom styles -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<!-- custom styles navbar-->
+	<link rel="stylesheet" type="text/css" href="nav.css">
+
+	<meta charset="UTF-8">
+	<title>Cooking</title>
+</head>
+<body>
+	{{>nav}}
+	<div class="container-full">
+		<div class="row">
+			<div class="col-md-12 text-center" id="header">
+				<div class="row">
+					<div class="col-md-12" id="getStartedTitle">
+						<p id="headerText">Start Cooking Now</p><br><br>
+						{{>get_started}}
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center"><h2 id="title">it's a simple as one, two, three</h2></div>
+		</div>	
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+
+					<div class="col-md-3 info">
+						<div class="row">
+							<div class="col-md-12 text.center">
+								<img class="img-circle img-circle" src="http://picturetherecipe.com/wp-content/uploads/2013/07/Picture-The-Recipe-Tips-Muffin-tin-for-stuffed-veggies.jpg">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><h4>Pick a recipe</h4></div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><article>Brekfast? Lunch? Dinner? We offer diverse recipes devided by categories, just pic a recipe</article></div>
+						</div>
+					</div>
+
+					<div class="col-md-3 info">
+						<div class="row">
+							<div class="col-md-12">
+								<img class="img-circle img-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWarzfjavZBcRDWroMrt28qRrrNLTsRihlA94nM8SF9en0a3Pn">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><h4>Cook</h4></div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><article>Enjoy cooking the recipe you choose, it's easy!</article></div>
+						</div>
+					</div>
+
+					<div class="col-md-3 info">
+						<div class="row">
+							<div class="col-md-12">
+								<img class="img-circle img-circle" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQd6SY8jEZMZaaw91u_Tiy7dsg0wQp9_MnOs_7vUHMx3jaC0w5Q">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><h4>Enjoy an amazing meal</h4></div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><article>It's time to eat what you cooked!</article></div>
+						</div>
+					</div>
+
+					<div class="col-md-3 info">
+						<div class="row">
+							<div class="col-md-12 text-center"><img class="img-circle img-circle" src="http://www.departures.com/sites/default/files/styles/ti_amg_dep_gallery_image_400px/public/201409-a-europes-best-cooking-schools_0.jpg?itok=uk6n0U3l">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><h4>want to share your recipe?</h4></div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center"><article>You can add a recipe and share it with the community</article></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				{{>get_started}}
+			</div>			
+		</div>
+	</div>    
+
+
+
+	<!-- jquery -->
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  	<!-- slidr.js -->
+ 	<!-- <script type="text/javascript" src="Users/zoharmuzafi/projects/Project-1--Recipes/slidr/slidr.min.js"></script> -->
+	<!-- custom script -->
+	<script type="text/javascript" src="main.js"></script>
+	<!-- handlebars -->
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  	<!-- bootstrap js -->
+ 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,74 @@
+body{
+	background-color: rgba(100, 140, 140, 0.2);
+}
+#header{
+	background-image: url("http://www.self.com/wp-content/uploads/2015/03/chef-cooking.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 320px 0px;
+	font-size: 100px;
+	font-style: oblique;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 39.6px;
+	font-family: monospace;
+	color: white;
+}
+#title{
+	font-family: monospace;
+	text-transform: uppercase;
+}
+.info{
+	padding: 10px;
+}
+h4{
+	font-family: monospace;
+	text-transform: uppercase;
+}
+.img-circle {
+    
+    width: 190px;
+    height: 190px;
+    margin: 0px 42px;
+}
+article{
+	font-family: monospace;
+}
+#getStarted{
+	padding: 15px 100px;
+	font-family: monospace;
+	text-transform: uppercase;
+	font-style: normal; 
+}
+#popBreakfast{
+	padding: 10px 50px;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+#popLunch{
+	padding: 10px 68px;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+#popDinner{
+	padding: 10px 65px;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+#headerText{
+	margin: -10px;
+}
+.modal-content{
+	background-color: #9899A3;
+	opacity: 0.9;
+	font-style: normal; 
+}
+.modal-title{
+	color: white;
+}
+#getStartedTitle{
+	background-color: rgba(100, 100, 100, 0.8);
+	margin: -80px 0px;
+	font-style: normal; 
+	padding: 60px;
+
