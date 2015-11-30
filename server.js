@@ -10,9 +10,8 @@ var Ingredient = require("./models/ingredient");
 var Recipe = require("./models/recipe");
 
 //connect database
-mongoose.connect("mongodb://localhost/recipes-app", process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URL || 'mongodb://localhost/recipes-app'
-);
+mongoose.connect(process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL || "mongodb://localhost/recipes-app");
 
 //apply body parser package
 app.use(bodyParser.urlencoded({extended:true}));
