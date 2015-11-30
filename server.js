@@ -10,7 +10,9 @@ var Ingredient = require("./models/ingredient");
 var Recipe = require("./models/recipe");
 
 //connect database
-mongoose.connect("mongodb://localhost/recipes-app");
+mongoose.connect("mongodb://localhost/recipes-app", process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL || 'mongodb://localhost/recipes-app'
+);
 
 //apply body parser package
 app.use(bodyParser.urlencoded({extended:true}));
@@ -61,6 +63,16 @@ app.get("/api/ingredients/:id", function(req, res){
 	Ingredient.find({name:searchedItem},function(err, ingredient){
 		res.json({ingredient:ingredient});
 	});
+});
+
+//post a new recipe
+app.post("/add", function(req, res){
+	var newRecipe = new Recipe(req.body);
+	newRecipe.save(function(err, savedRecipe){
+		res.json(savedRecipe);
+		
+	});
+
 });
 
 

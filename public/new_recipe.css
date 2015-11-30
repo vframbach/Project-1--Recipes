@@ -44,3 +44,44 @@ h5{
 #emptyDiv{
 	height: 60px;
 }
+
+#popBreakfastDiv{
+	width: 30%;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+#popLunchDiv{
+	width: 30%;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+#popDinnerDiv{
+	width: 30%;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+#popAddDiv{
+	width: 40%;
+	font-family: monospace;
+	text-transform: uppercase;
+	background-color: #9F0D60;
+}
+#or{
+	color: white;
+}
+
+.modal-content{
+	background-color: #9899A3;
+	opacity: 0.9;
+	font-style: normal; 
+}
+#modalTitle{
+	color: white;
+	font-family: monospace;
+}
+.modal-title{
+	font-family: monospace;
+}
+.error{
+	border: 3px solid red;
+}
