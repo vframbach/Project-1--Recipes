@@ -26,7 +26,7 @@ app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 
 //define server + sanity check
-var server = app.listen(process.env.Port || 3000, function(){
+var server = app.listen(process.env.PORT || 3000, function(){
 	console.log("listening");
 });
 
