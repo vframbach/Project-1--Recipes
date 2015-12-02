@@ -8,6 +8,7 @@ var hbs = require("hbs");
 //require schemas
 var Ingredient = require("./models/ingredient");
 var Recipe = require("./models/recipe");
+var Amount = require("./models/amount");
 
 //connect database
 mongoose.connect(process.env.MONGOLAB_URI ||
@@ -50,7 +51,7 @@ app.get("/breakfast", function(req, res){
 
 //route to lunch page
 app.get("/lunch", function(req, res){
-	Recipe.find({tag:"lunch"}).populate("ingredients").exec(function(err, lunchRecipes){
+	Recipe.find({tag:"lunch"}).populate("ingredients.item").exec(function(err, lunchRecipes){
 		res.render("lunch", {lunchRecipesData:lunchRecipes});
 	});
 });
@@ -72,11 +73,35 @@ app.get("/api/ingredients/:name", function(req, res){
 });
 
 //post a new recipe
-app.post("/add", function(req, res){
-	console.log(req);
-	var newRecipe = new Recipe(req.body);
+app.post("/api/recipes", function(req, res){
+	// var newRecipe = new Recipe(req.body);
+	var newRecipe = new Recipe({
+		name: req.body.name,
+		number_of_people: req.body.number_of_people,
+		cooking_time: req.body.cooking_time,
+		tag: req.body.tag,
+		image: req.body.image,
+		instructions: req.body.instructions
+	});
+	// console.log(req);
+	// var newRecipe = new Recipe(req.body.ingredients.id);
 	newRecipe.save(function(err, savedRecipe){
-		console.log("recipe:"+savedRecipe);
+		console.log("ingredients:"+ req.body.ingredients);
+
+		console.log(JSON.parse(req.body.ingredients));
+		var parsedIngredients = JSON.parse(req.body.ingredients);
+
+		for(var i=0; i<parsedIngredients.length; i++){
+			console.log(parsedIngredients[i].quantity);
+				var newAmount = new Amount({
+					quantity: parsedIngredients[i].quantity,
+					measure: parsedIngredients[i].measure,
+					item: parsedIngredients[i].id
+				});
+				savedRecipe.ingredients.push(newAmount);
+				console.log("amount"+newAmount);
+				savedRecipe.save();
+		}
 		res.json(savedRecipe);	
 	});
 });

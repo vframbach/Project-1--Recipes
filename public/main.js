@@ -1,6 +1,6 @@
 //class ingredient for singel ingredient in a recipe
-function Ingredient(qantity, measure, id){
-	this.qantity = qantity;
+function Ingredient(quantity, measure, id){
+	this.quantity = quantity;
 	this.measure = measure;
 	this.id = id;
 }
@@ -130,12 +130,11 @@ $(document).ready(function(){
 		//iterating on the ingredients list of ingredients
 		$("#selectedIngredients .row .col-md-12 .recipeIngredientList").each(function(){
 			var id = $(this).attr("id");
-			console.log(id);
-			var qantity = $(this).children("p").children("#quantityOf"+id).text();
+			var quantity = $(this).children("p").children("#quantityOf"+id).text();
 			var measure = $(this).children("p").children("#measureOf"+id).text();
 
 			//create asingle ingredient
-			var singelIngredient = new Ingredient(qantity, measure, id.toString());
+			var singelIngredient = new Ingredient(quantity, measure, id.toString());
 			console.log("singleingredient" + singelIngredient.id);
 			ingredients.push(singelIngredient);	
 			console.log("ingredients arr:" + ingredients[0].object, ingredients[0].Object);
@@ -144,12 +143,12 @@ $(document).ready(function(){
 	
 		if(ingredientsValidate(ingredients, instructions)){
 
-			var newRecipe = new Recipe(recipeName, dinners, coockingTime, tag, image, ingredients, instructions);
+			var newRecipe = new Recipe(recipeName, dinners, coockingTime, tag, image, JSON.stringify(ingredients), instructions);
 			console.log("id"+ingredients[0].id);
 			console.log(ingredients[0]);
 			
 
-			$.post("/add", newRecipe, function(data){
+			$.post("/api/recipes", newRecipe, function(data){
 				console.log("posted");
 				$("#nameOfRecipe").val("");
 				$("#dinners").val("");
