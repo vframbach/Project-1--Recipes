@@ -42,37 +42,47 @@ app.get("/add", function(req, res){
 
 //route to breckfast page
 app.get("/breakfast", function(req, res){
-	res.render("breakfast");
+	Recipe.find({tag:"breakfast"}).populate("ingredients").exec(function(err, breakfastRecipes){
+		console.log("arr:" + breakfastRecipes);
+		res.render("breakfast", {breakfastRecipesData:breakfastRecipes});
+	});
 });
 
 //route to lunch page
 app.get("/lunch", function(req, res){
-	res.render("lunch");
+	Recipe.find({tag:"lunch"}).populate("ingredients").exec(function(err, lunchRecipes){
+		res.render("lunch", {lunchRecipesData:lunchRecipes});
+	});
 });
 
 //route to dinner page 
 app.get("/dinner", function(req, res){
-	res.render("dinner");
+	Recipe.find({tag:"dinner"}).populate("ingredients").exec(function(err, dinnerRecipes){
+		res.render("dinner", {dinnerRecipesData: dinnerRecipes});
+	});
 });
 
 //find an ingredient route
-app.get("/api/ingredients/:id", function(req, res){
-	var searchedItem=req.params.id;
-	console.log(searchedItem);
+app.get("/api/ingredients/:name", function(req, res){
+	var searchedItem=req.params.name;
 	Ingredient.find({name:searchedItem},function(err, ingredient){
+		console.log(ingredient);
 		res.json({ingredient:ingredient});
 	});
 });
 
 //post a new recipe
 app.post("/add", function(req, res){
+	console.log(req);
 	var newRecipe = new Recipe(req.body);
 	newRecipe.save(function(err, savedRecipe){
-		res.json(savedRecipe);
-		
+		console.log("recipe:"+savedRecipe);
+		res.json(savedRecipe);	
 	});
-
 });
+
+
+
 
 
 

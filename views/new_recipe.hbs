@@ -32,20 +32,20 @@
 	  			<div class="col-md-4">
 					<form id="newRecipeForm">
 	  					<div class="form-group">
-	  						<input type="text" class="form-control" id="nameOfRecipe" placeholder="What Are You Cooking?" required>
+	  						<input type="text" name="recipeName" class="form-control required" id="nameOfRecipe" placeholder="What Are You Cooking?">
 	  					</div>
 	  					<div class="form-group">
-	  						<input type="text" class="form-control" id="dinners" placeholder="For How Many Dinners?" required>
+	  						<input type="text" name="dinnerNum" class="form-control" id="dinners" placeholder="For How Many Dinners?" required>
 	  					</div>
 
 	  					<div class="form-group">
-	  						<input type="number" class="form-control" id="time" placeholder="estimated cooking time (in minuets)" required>
+	  						<input type="number" name="coockingTime" class="form-control" id="time" placeholder="estimated cooking time (in minuets)" required>
 	  					</div>
-						<select class="form-control" id="tag">
-							<option>Select meal</option>
-							<option>Breakfast</option>
-							<option>Lunch</option>
-							<option>Dinner</option>
+						<select name="tagOfRecipe" class="form-control" id="tag" required>
+							<option value="">Select meal</option>
+							<option value="breakfast">Breakfast</option>
+							<option value="lunch">Lunch</option>
+							<option value="dinner">Dinner</option>
 						</select>
 					
 	  
@@ -82,8 +82,8 @@
 								    	</div>
 								    	<div class="row">
 							    			<div class="col-md-12 text-center">
-								    			<select class="form-control measure" id="measure\{{_id}}">
-													<option>measurment</option>
+								    			<select class="form-control measure" id="measure\{{_id}}" required>
+													<option value="">measurment</option>
 													<option>Can</option>
 													<option>Cup</option>
 													<option>Gr</option>
@@ -115,7 +115,7 @@
 	
 			  				<div class="form-group">
 				  				<h5>Image of your dish:</h5>
-				   				<input type="file" id="dishImage" validation="required">
+				   				<input type="file" id="dishImage" required>
 				   			</div>
 		   					</div> 	
 
@@ -129,28 +129,6 @@
 			  		<div class="row">
 			  			<div class="col-md-12 text-center">
 			  				<button type="submit" id="submitRecipe" class="btn btn-primary text-center" data-toggle="modal" data-target="#myModal">Post My Recipe!</button>
-								<!-- Modal -->
-					       <!--  <div id="myModal" class="modal fade" role="dialog">
-					            <div class="modal-dialog"> -->
-					              <!-- Modal content-->
-					              <!-- <div class="modal-content">
-					                <div class="modal-header">
-					                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-					                    <h4 id="modalTitle">Thank you for sharing your recipe!</h4>
-					                </div>
-				                  <div class="modal-body">
-
-				                  	<h5 class="modal-title">would you like to cook?</h4><br>
-				                    <a href="/breakfast" class="btn btn-info btn-lg" id="popBreakfastDiv">Breakfast</a><br><br>
-				                    <a href="/lunch" class="btn btn-info btn-lg" id="popLunchDiv">Lunch</a><br><br>
-				                    <a href="/dinner" class="btn btn-info btn-lg" id="popDinnerDiv">Dinner</a><br><br>
-				                    <p id="or">or</p>
-				                    <a href="/add" class="btn btn-info btn-lg" id="popAddDiv">Add another recipe</a><br><br>
-				                  </div>
-					            </div>
-					          </div>
-					        </div> -->
-
 			  			</div>
 			  		</div>
 				</form>
@@ -158,18 +136,19 @@
 		</div>
 	</div>
 
-	<!-- jquery -->
-  	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<!-- custom script -->
-	<script type="text/javascript" src="main.js"></script>
 	<!-- handlebars -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+	<!-- jquery -->
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   	<!-- bootstrap js -->
  	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  	<!-- jquery validate -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+	<!-- custom validation script -->
+	<script type="text/javascript" src="validations.js"></script>
 	<!-- custom script -->
-	<script type="text/javascript" src="scripts/validations.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	
  	
 	
 </body>
