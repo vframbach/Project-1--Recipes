@@ -4,6 +4,8 @@ var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var hbs = require("hbs");
+var formidable = require('formidable');
+var fs = require('fs-extra');
 
 //require schemas
 var Ingredient = require("./models/ingredient");
@@ -106,7 +108,39 @@ app.post("/api/recipes", function(req, res){
 	});
 });
 
+//upload img
 
+app.post('/upload', function(req, res) {
+	var form = new formidable.IncomingForm();
+	form.parse(req);
+
+	form.on('end', function() {
+
+		/* Temporary location of our uploaded file */
+		var temp_path = this.openedFiles[0].path;
+		var fileName = this.openedFiles[0].name;
+		var ext = fileName.split(".");
+		ext = ext[ext.length - 1];
+
+
+		console.log(ext);
+		/* The file name of the uploaded file */
+		var file_name = "123." + ext;
+		/* Location where we want to copy the uploaded file */
+		var new_location = './public/uploads/';
+
+		fs.copy(temp_path, new_location + file_name, function(err) {
+			if (err) {
+				console.error(err);
+			} else {
+				console.log("success!");
+				res.json({
+					path: new_location + file_name
+				});
+			}
+		});
+	});
+});
 
 
 
