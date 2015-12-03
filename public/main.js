@@ -150,6 +150,7 @@ $(document).ready(function(){
 
 			$.post("/api/recipes", newRecipe, function(data){
 				console.log("posted");
+				$('#myModal').modal();
 				$("#nameOfRecipe").val("");
 				$("#dinners").val("");
 				$("#time").val("");
@@ -157,10 +158,11 @@ $(document).ready(function(){
 				$("#dishImage").val("");
 				$("#instructions").val("");
 				$("#selectedIngredients").empty();	
-				// $(".container-full").appendTo("{{>calltoaction}}");	
+
 			});
 		}
 	});
+
 });
 
 

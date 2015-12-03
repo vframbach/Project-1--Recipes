@@ -5,7 +5,7 @@ $(document).ready(function(){
 		var itemId=$(this).attr("id");
 		$("#desciption"+itemId).toggle();
 
-		//add +/-
+		//add +/- button
 		$(this).find("span").toggleClass("glyphicon glyphicon-plus, glyphicon glyphicon-minus");
 	
 	});

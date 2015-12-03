@@ -1,3 +1,13 @@
 .navbar{
 	margin: 0px;
 }
+.add-btn{
+	color: white !important;
+	margin-right: -10%;
+	margin-bottom: -2% !important;
+	background: #31b0d5;
+
+}
+.add-btn:hover{
+	background: #31b0d5 !important;
+}
