@@ -43,7 +43,7 @@ app.get("/add", function(req, res){
 
 //route to breckfast page
 app.get("/breakfast", function(req, res){
-	Recipe.find({tag:"breakfast"}).populate("ingredients").exec(function(err, breakfastRecipes){
+	Recipe.find({tag:"breakfast"}).populate("ingredients.item").exec(function(err, breakfastRecipes){
 		console.log("arr:" + breakfastRecipes);
 		res.render("breakfast", {breakfastRecipesData:breakfastRecipes});
 	});
@@ -58,7 +58,7 @@ app.get("/lunch", function(req, res){
 
 //route to dinner page 
 app.get("/dinner", function(req, res){
-	Recipe.find({tag:"dinner"}).populate("ingredients").exec(function(err, dinnerRecipes){
+	Recipe.find({tag:"dinner"}).populate("ingredients.item").exec(function(err, dinnerRecipes){
 		res.render("dinner", {dinnerRecipesData: dinnerRecipes});
 	});
 });
@@ -99,9 +99,9 @@ app.post("/api/recipes", function(req, res){
 					item: parsedIngredients[i].id
 				});
 				savedRecipe.ingredients.push(newAmount);
-				console.log("amount"+newAmount);
-				savedRecipe.save();
+				console.log("amount"+newAmount);		
 		}
+		savedRecipe.save();
 		res.json(savedRecipe);	
 	});
 });

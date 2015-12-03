@@ -40,7 +40,7 @@
 							<ol>
 							
 							{{#each ingredients}}	
-				 				<li class='recipeIngredientList' id="{{_id}}">{{qantity}}, {{measure}}, {{item}}</li>
+				 				<li class='recipeIngredientList' id="{{_id}}"><img class= "liImg" src="{{item.image}}"> {{item.name}}- {{quantity}} {{measure}}</li>
 							{{/each}}
 
  							</ol><br><hr>
@@ -63,6 +63,8 @@
  	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<!-- custom script -->
 	<script type="text/javascript" src="meal.js"></script>
+	<!-- custom script for breakfast-->
+	<script type="text/javascript" src="breakfast.js"></script>
   
 	
 </body>
