@@ -9,7 +9,7 @@ var RecipeSchema = new Schema({
 	number_of_people: {type: String, required: true},
 	cooking_time: {type: String, required: true},
 	tag: {type: String, required: true},
-	image: {type: String, required: true},
+	image: String,
 	ingredients:  [Amount.schema],
 	instructions: {type: String, required: true}
 });

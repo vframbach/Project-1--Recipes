@@ -119,6 +119,27 @@ $(document).ready(function(){
 		$(this).parent().parent().parent().parent().remove();
 	});
 
+	$("#dishImage").on("change",function(){
+		console.log("upload");
+		var myFormData = new FormData();
+		myFormData.append('upload', $("#dishImage").get(0).files[0]);
+		$.ajax({
+		  url: '/upload',
+		  type: 'POST',
+		  processData: false, // important
+		  contentType: false, // important
+		  dataType : 'json',
+		  data: myFormData,
+		  success: function(data){
+		  	//display uploaded img
+		  	console.log(data);
+		  	var splitedUrl = data.path.split("/");
+		  	var imgUrl = "http://localhost:3000/" + splitedUrl[2] + "/" + splitedUrl[3];
+		  	$(".uploadedImg").remove();
+		  	$("#imgDiv").append("<img class='uploadedImg' src='" + imgUrl +"'>");
+		  }
+		});
+	});
 	//submit a recipe 
 	$("#newRecipeForm").on("submit", function(event){
 		event.preventDefault();
@@ -129,8 +150,14 @@ $(document).ready(function(){
 		var coockingTime = $("#time").val();
 		var tag = $("#tag").val();
 		var ingredients = [];
-		var image = $("#dishImage").val();
+		var image = $(".uploadedImg").attr("src");
 		var instructions = $("#instructions").val();
+
+		console.log(image);
+		//default image in case that image wasn't uploaded by the user
+		if (!image){
+			image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzSeb_NylZz4vJOGYezXxWDAigcIFSzRkToa8yhPIApTDvnOFyBw";
+		}
 
 		//iterating on the ingredients list of ingredients
 		$("#selectedIngredients .row .col-md-12 .recipeIngredientList").each(function(){

@@ -62,11 +62,11 @@
 	  						<input type="text" name="recipeName" class="form-control required" id="nameOfRecipe" placeholder="What Are You Cooking?">
 	  					</div>
 	  					<div class="form-group">
-	  						<input type="text" name="dinnerNum" class="form-control" id="dinners" placeholder="For How Many Dinners?" required>
+	  						<input type="number" name="dinnerNum" class="form-control" id="dinners" placeholder="For How Many Dinners?" required min 1>
 	  					</div>
 
 	  					<div class="form-group">
-	  						<input type="number" name="coockingTime" class="form-control" id="time" placeholder="Estimated cooking time (in minuets)" required>
+	  						<input type="number" name="coockingTime" class="form-control" id="time" placeholder="Estimated cooking time (in minuets)" required min 1>
 	  					</div>
 						<select name="tagOfRecipe" class="form-control" id="tag" required>
 							<option value="">Select meal</option>
@@ -140,9 +140,9 @@
 		    						
 	 					</ol> 
 	
-			  				<div class="form-group">
-				  				<h5>Image of your dish:</h5>
-				   				<input type="file" id="dishImage" required>
+			  				<div class="form-group" id="imgDiv">
+				  				<h5>Image of your dish (optional):</h5>
+				   				<input type="file" id="dishImage" value="">
 				   			</div>
 		   					</div> 	
 

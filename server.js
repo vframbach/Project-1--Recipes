@@ -120,22 +120,29 @@ app.post('/upload', function(req, res) {
 		var temp_path = this.openedFiles[0].path;
 		var fileName = this.openedFiles[0].name;
 		var ext = fileName.split(".");
+		var fileFullName = "";
+		
+		for(var i=0; i<ext.length-1; i++){
+			fileFullName += ext[i]; 
+		}
 		ext = ext[ext.length - 1];
+		console.log("full",fileFullName);
+		console.log("ext",ext);
 
-
-		console.log(ext);
 		/* The file name of the uploaded file */
-		var file_name = "123." + ext;
+		var file_name = fileFullName + "." + ext;
+		console.log(file_name);
 		/* Location where we want to copy the uploaded file */
 		var new_location = './public/uploads/';
 
 		fs.copy(temp_path, new_location + file_name, function(err) {
-			if (err) {
-				console.error(err);
-			} else {
-				console.log("success!");
-				res.json({
-					path: new_location + file_name
+				if (err) {
+					console.error(err);
+				} 
+				else {
+					console.log("success!");
+					res.json({
+						path: new_location + file_name
 				});
 			}
 		});
