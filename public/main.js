@@ -22,7 +22,7 @@ function ingredientsValidate(ingredients, textarea){
 	if(ingredients.length===0){
 		val = false;
 		$("#allTheIngredients").empty();
-		$("#allTheIngredients").append("<div class='col-md-6 col-md-offset-1 error errorList'><p id='resultError'>Even a scremble egg has one ingredient :)</p></div>");
+		$("#allTheIngredients").append("<div class='col-md-6 col-md-offset-1 error errorList'><p id='resultError'>Even a scrambled egg has one ingredient :)</p></div>");
 	}
 	else{
 		$("#allTheIngredients").remove(".errorList");
@@ -107,11 +107,16 @@ $(document).ready(function(){
 		if(addValidate(quantity, measure, itemId)){
 		
 		//clean the search list and add the item to the recipe
-		var appended = "<div class='row'><div class='col-md-12'><li class='recipeIngredientList' id=" + itemId + "><p>" + "<img class='ingredientListImg'" + "src=" + img +">&nbsp;&nbsp;" + name + "-&nbsp;&nbsp;<span id='quantityOf" + itemId + "''>" + quantity + "</span> &nbsp;&nbsp; <span id='measureOf" + itemId + "''>" + measure + "(s)" + "</p></li></div></div>";
+		var appended = "<div class='row'><div class='col-md-12'><li class='recipeIngredientList' id=" + itemId + "><p>" + "<img class='ingredientListImg'" + "src=" + img +">&nbsp;&nbsp;" + name + "-&nbsp;&nbsp;<span id='quantityOf" + itemId + "''>" + quantity + "</span> &nbsp;&nbsp; <span id='measureOf" + itemId + "''>" + measure + "(s)" + "<button type='button' class='close' id='close" + itemId +"''>&times;</button></p></li></div></div>";
 		$("#allTheIngredients").empty();
 		$("#selectedIngredients").append(appended);
 		$("#allTheIngredients").removeClass("allTheIngredientsDiv");
 		}
+	});
+
+	$(document).on("click", ".close", function(event){
+		event.preventDefault();
+		$(this).parent().parent().parent().parent().remove();
 	});
 
 	//submit a recipe 
@@ -154,7 +159,7 @@ $(document).ready(function(){
 				$("#nameOfRecipe").val("");
 				$("#dinners").val("");
 				$("#time").val("");
-				$("#tag").val("Select meal");
+				$("#tag").val("");
 				$("#dishImage").val("");
 				$("#instructions").val("");
 				$("#selectedIngredients").empty();	
