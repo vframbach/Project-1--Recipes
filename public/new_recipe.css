@@ -99,3 +99,26 @@ h5{
 	width: 70%;
 	margin: 1%;
 }
+@media(max-width: 800px){
+	body{
+		padding: 1%;
+	}
+	#popBreakfastDiv{
+		width: 60%
+	}
+	#popLunchDiv{
+		width: 60%
+	}
+	#popDinnerDiv{
+		width: 60%
+	}
+	#popAddDiv{
+		width: 70%
+	}
+	.addIngredient{
+		margin: 1% 0%;
+	}
+	.ingredientImg{
+		width: 30%;
+	}
+}

@@ -1,5 +1,6 @@
 body{
 	background-color: rgba(100, 140, 140, 0.2);
+	margin: 0;
 }
 #header{
 	background-image: url("http://www.self.com/wp-content/uploads/2015/03/chef-cooking.jpg");
@@ -32,7 +33,7 @@ h4{
     margin: 0px 42px;
 }
 article{
-	font-family: monospace;
+	font-family: 'PT Serif', serif;
 }
 #getStarted{
 	padding: 15px 100px;
@@ -72,3 +73,28 @@ article{
 	font-style: normal; 
 	padding: 60px;
 
+}
+#popAdd{
+	width: 40%;
+	font-family: monospace;
+	text-transform: uppercase;
+	background-color: #9F0D60;
+}
+#orModel{
+	color: white;
+	margin: 0px;
+	font-size: 30px;
+}
+
+@media(max-width: 800px){
+	#header{
+		font-size: 50px;
+
+	}
+	#orModel{
+		font-size: 20px;
+	}
+	#popAdd{
+		width: 70%;
+	}
+}

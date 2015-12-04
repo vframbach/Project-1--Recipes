@@ -9,5 +9,11 @@ $(document).ready(function(){
 		$(this).find("span").toggleClass("glyphicon glyphicon-plus, glyphicon glyphicon-minus");
 	
 	});
+	$("li").mouseover(function(){
+    	$(this).css("background-color", "rgba(148, 141, 141, 0.7)");
+	});
+	$("li").mouseout(function(){
+	    $("li").css("background", "none");
+	});
 
 });

@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="meal.css">
 	<!-- custom styles navbar-->
 	<link rel="stylesheet" type="text/css" href="nav.css">
+	<!-- google fonts-->
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400italic,400' rel='stylesheet' type='text/css'>
 
 	<meta charset="UTF-8">
 	<title>Cooking breakfast</title>
@@ -23,17 +25,30 @@
 	{{#each breakfastRecipesData}}
 		<div class="row recipeFrontRow">
 		 	<div class="col-md-6 col-md-offset-3 recipeFront" id="{{_id}}">	
-		 		
-		 			<div class="col-md-4 text-left">
+
+		 		<div class="row">
+		 			<div class="col-md-4 text-center">
 		 				<img class="justImg" src="{{image}}">
 		 			</div>
-		 			<div class="col-md-4 text-left">
+		 			<div class="col-md-4 text-center">
 		 				<h1 class="nameTitle">{{name}}</h1>	
 		 			</div>
-		 			<div class="col-md-4 text-right">
-		 				<h3 class="timeTitle">{{cooking_time}} min</h3>
-		 				<button class="btn show pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+		 			<div class="col-md-4">
+		 			<div class="row">
+		 				<div class="col md-12 text-center">
+		 					<h3 class="timeTitle">{{cooking_time}} min</h3>
+		 				</div>
 		 			</div>
+		 			<div class="row">
+		 				<div class="col md-12 text-center">
+		 					<button class="btn show"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+		 				</div>
+		 			</div>
+		 				
+		 			</div>
+		 		</div>
+		 		
+		 			
 		 			<div class="row description" id="desciption{{_id}}">
 						 <div class="col-md-12 descriptionOfRecipe">	
  							<h5>Ingredients:</h5>

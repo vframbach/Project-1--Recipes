@@ -36,12 +36,13 @@
 	width: 62%;
 }
 .show{
-	margin-right: 9%;
-	margin-top: 1%;
+
+	margin: 1% auto;
 }
 .instructionsArticle{
 	margin-bottom: 4%;
-	margin-left: 1.5%
+	margin-left: 1.5%;
+	font-family: 'PT Serif', serif;
 }
 hr{
 	margin-top: -10px;
@@ -54,4 +55,14 @@ h5{
 }
 .liImg{
 	width: 5%;
+}
+.recipeIngredientList{
+	font-family: 'PT Serif', serif;
+}
+@media(max-width: 800px){
+	.carousel-caption{
+		bottom: -15px;
+		font-size: 20px;
+	}
+
 }

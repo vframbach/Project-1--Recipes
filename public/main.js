@@ -161,11 +161,12 @@ $(document).ready(function(){
 
 		//iterating on the ingredients list of ingredients
 		$("#selectedIngredients .row .col-md-12 .recipeIngredientList").each(function(){
+			$(".close").remove();
 			var id = $(this).attr("id");
 			var quantity = $(this).children("p").children("#quantityOf"+id).text();
 			var measure = $(this).children("p").children("#measureOf"+id).text();
 
-			//create asingle ingredient
+			//create a single ingredient
 			var singelIngredient = new Ingredient(quantity, measure, id.toString());
 			console.log("singleingredient" + singelIngredient.id);
 			ingredients.push(singelIngredient);	
@@ -195,6 +196,12 @@ $(document).ready(function(){
 		}
 	});
 
+	$("li").mouseover(function(){
+	    $(this).css("background-color", "rgba(148, 141, 141, 0.7)");
+	});
+	$("li").mouseout(function(){
+	        $("li").css("background", "none");
+	});
 });
 
 
