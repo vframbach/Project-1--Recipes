@@ -134,7 +134,7 @@ $(document).ready(function(){
 		  	//display uploaded img
 		  	console.log(data);
 		  	var splitedUrl = data.path.split("/");
-		  	var imgUrl = "http://localhost:3000/" + splitedUrl[2] + "/" + splitedUrl[3];
+		  	var imgUrl = "https://cooking-app.herokuapp.com/" + splitedUrl[2] + "/" + splitedUrl[3];
 		  	$(".uploadedImg").remove();
 		  	$("#imgDiv").append("<img class='uploadedImg' src='" + imgUrl +"'>");
 		  }
