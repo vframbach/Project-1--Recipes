@@ -71,26 +71,30 @@ $(document).ready(function(){
 	//search engine for ingredient
 	$("#searchButton").on("click", function(event){
 		event.preventDefault();
+		if ($("#searchIngredient").val() === ""){
+		alert("Ingredient not found");
+	} else {
 
-		//empty result when a new search was submitted
-		$("#allTheIngredients").empty();
+				//empty result when a new search was submitted
+				$("#allTheIngredients").empty();
 
-		searchedItem = capitalizeFirstLetter($("#searchIngredient").val());
+				searchedItem = capitalizeFirstLetter($("#searchIngredient").val());
 
-		//add class with a background to the resut of the search
-		$("#allTheIngredients").addClass("allTheIngredientsDiv");
+				//add class with a background to the resut of the search
+				$("#allTheIngredients").addClass("allTheIngredientsDiv");
 
-		$.get("/api/ingredients/"+searchedItem, function(data){
-			if(data.ingredient.length>0){
-				var trackHtml=template({item:data.ingredient});
-			$("#allTheIngredients").append(trackHtml);	
-			}
-			else{
-				var appended = "<div class='col-md-6 col-md-offset-3 text-center'><p id='noResult'>Sorry, the item was not found</p></div>";
-				$("#allTheIngredients").append(appended);
+				$.get("/api/ingredients/"+searchedItem, function(data){
+					if(data.ingredient.length>0){
+						var trackHtml=template({item:data.ingredient});
+					$("#allTheIngredients").append(trackHtml);	
+					}
+					else{
+						var appended = "<div class='col-md-6 col-md-offset-3 text-center'><p id='noResult'>Sorry, the item was not found</p></div>";
+						$("#allTheIngredients").append(appended);
+					}	
+				});
+				$("#searchIngredient").val("");
 			}	
-		});
-		$("#searchIngredient").val("");
 	});
 
 	//add ingredient from the search to the recipe
